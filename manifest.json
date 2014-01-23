@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    
+    "name": "Grid Creation",
+    "description": "This extension creates custom grid layout boilerplate css.",
+    "version": "1.0",
+    
+    "permissions": [
+        "https://secure.flickr.com/"
+    ],
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "assets/scripts/background.js"
+        ]
+    },
+    "browser_action": {
+        "default_title": "generate css for a grid system",
+        "default_icon": {
+            "19": "assets/images/icon-19.png",
+            "38": "assets/images/icon-38.png"
+        },
+        "default_popup": "popup.html"
+    }
+}

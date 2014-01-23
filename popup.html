@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Generating CSS for a Grid System</title>
+        
+        <link rel="stylesheet" type="text/css" href="assets/styles/global.css" />
+        <script src="assets/scripts/jquery-1.10.2.min.js"></script>
+        
+        <!--
+        - JavaScript and HTML must be in separate files: see our Content Security
+        - Policy documentation[1] for details and explanation.
+        -
+        - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+        -->
+    </head>
+<body>
+    <!--
+    - Features / Options needed for the grid system
+    - column count
+    - column width or site width
+    - column margins
+    - container gutter
+    -->
+    <div class="wrapIt">
+        <header class="masthead">
+            <h1 class="hdg hdg_2 mix-hdg_primary">Grid Creation Engine</h1>
+            <h2 class="hdg hdg_5 mix-hdg_scnd">enter your desired values below</h2>
+            <!--<div class="settings">
+                <a class="settings-link" href="#">settings</a>
+            </div>-->
+        </header>
+        <section class="contPopup">
+            <!-- GRID TYPE -->
+            <div class="feature mix-feature_space js-gridType">
+                <div class="feature-hd">
+                    <h3 class="hdg hdg_5">Type of Grid:</h3>
+                </div>
+                <div class="feature-bd">
+                    <ul class="blocks blocks_3up">
+                        <li>
+                            <a class="btn js-btn" href="#" data-btnis="gtype" data-value="simple">Simple Grid</a>
+                        </li>
+                        <li>
+                            <a class="btn js-btn" href="#" data-btnis="gtype" data-value="complex">Complex Grid</a>
+                        </li>
+                        <li>
+                            <a class="btn js-btn" href="#" data-btnis="gtype" data-value="ninja">Ninja Grid</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- DIVIDER -->
+            <div class="divider"></div>
+            <!-- GRID CUSTOMIZATION: Complex & Ninja -->
+            <div class="feature isHidden js-gridSettings">
+                <div class="feature-hd">
+                    <h3 class="hdg hdg_5">Grid Customization:</h3>
+                </div>
+                <div class="feature-bd">
+                    <div class="grid js-custComplex">
+                        <div class="grid-col grid-col_10of10">
+                            <div class="box">
+                                <div class="feature mix-feature_tight">
+                                    <div class="grid">
+                                        <div class="grid-col grid-col_3of10">
+                                            <h3 class="hdg hdg_5 mix-hdg_sub">Grid Defaults:</h3>
+                                        </div>
+                                        <div class="grid-col grid-col_7of10">
+                                            <div class="textRight">
+                                                <a class="js-default" data-num="16" href="#">16 Columns</a>, 
+                                                <a class="js-default" data-num="12" href="#">12 Columns</a>, or 
+                                                <a class="js-default" data-num="10" href="#">10 Columns</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-col grid-col_7of10">
+                            <div class="box">
+                                <div class="feature mix-feature_tight">
+                                    <div class="feature-hd">
+                                        <h4 class="hdg hdg_6 mix-hdg_sub">Grid Widths:</h4>
+                                    </div>
+                                    <div class="feature-bd">
+                                        <form class="field">
+                                            <fieldset class="field-set">
+                                                <label class="field-label">
+                                                    site width <span class="field-label-hl">(px)</span>
+                                                    <input name="siteWidth" type="text" class="field-text field-text_right js-siteWidth" value="0">
+                                                </label>
+                                                <label class="field-label js-gridComplex">
+                                                    column count
+                                                    <input name="columnCount" type="text" class="field-text field-text_right js-columnCount" value="0">
+                                                </label>
+                                                <label class="field-label js-gridSimple">
+                                                    large column width <span class="field-label-hl">(px)</span>
+                                                    <input name="columnWidth" type="text" class="field-text field-text_right js-columnWidthLrg" value="0">
+                                                </label>
+                                                <label class="field-label js-gridSimple">
+                                                    small column width <span class="field-label-hl">(px)</span>
+                                                    <input name="columnWidth" type="text" class="field-text field-text_right js-columnWidthSml" value="0">
+                                                </label>
+                                                <label class="field-label">
+                                                    column margins <span class="field-label-hl">(px)</span>
+                                                    <input name="columnMargin" type="text" class="field-text field-text_right js-columnMargin" value="0">
+                                                </label>
+                                                <label class="field-label">
+                                                    container gutters <span class="field-label-hl">(px)</span>
+                                                    <input name="contGutter" type="text" class="field-text field-text_right js-contGutter" value="0">
+                                                </label>
+                                                <label class="field-label">
+                                                    body font-size <span class="field-label-hl">(px)</span>
+                                                    <input name="bodyFont" type="text" class="field-text field-text_right js-bodyFont" value="0">
+                                                </label>
+                                                <label class="field-label js-gridComplex">
+                                                    column width <span class="field-label-hl">(px)</span>
+                                                    <input name="columnWidth" type="text" class="field-text field-text_right js-columnWidth" value="0">
+                                                </label>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-col grid-col_3of10">
+                            <div class="box">
+                                <div class="feature mix-feature_tight">
+                                    <div class="feature-hd">
+                                        <h4 class="hdg hdg_6 mix-hdg_sub">Grid Units:</h4>
+                                    </div>
+                                    <div class="feature-bd">
+                                        <form class="field">
+                                            <fieldset class="field-set">
+                                                <label class="field-label field-label_widths">
+                                                    <input name="gridUnit" type="radio" class="field-radio js-gridUnit" value="px" checked>
+                                                    px <span class="field-label-hl">width</span>
+                                                </label>
+                                                <label class="field-label field-label_widths">
+                                                    <input name="gridUnit" type="radio" class="field-radio js-gridUnit" value="em">
+                                                    em <span class="field-label-hl">width</span>
+                                                </label>
+                                                <label class="field-label field-label_widths">
+                                                    <input name="gridUnit" type="radio" class="field-radio js-gridUnit" value="pct">
+                                                    % <span class="field-label-hl">width</span>
+                                                </label>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature mix-feature_tight">
+                                <a class="btn btn_cta" href="#" data-btnis="sample">Sample Grid</a>
+                            </div>
+                            <div class="feature mix-feature_tight">
+                                <a class="btn btn_cta" href="#" data-btnis="css">Get CSS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature isHidden js-warningShow">
+                <div class="grid">
+                    <div class="grid-col grid-col_10of10">
+                        <div class="box mix-box_warning">
+                            <div class="warning js-warning">
+                                Warning: something is not correct you need to fix it :D
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="assets/scripts/grideng.js"></script>
+</body>
+</html>
+
